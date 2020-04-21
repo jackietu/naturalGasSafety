@@ -1,0 +1,11 @@
+<!--components/index/scanAlert.wxml-->
+<!-- 选择弹框 -->
+<view class="zzc" style="display:{{show?'':'none'}}">
+  <view class="mainrydd" style="width: 80%;">
+    <view class="head">
+      <text>扫码查看详情</text>
+      <image src="/img/closexx.png" alt="" data-show="0" bindtap="hideAlert" mode='widthFix'></image>
+    </view>
+    <image src="{{imageUrl}}" style="width:100%;" mode="widthFix"></image>
+  </view>
+</view>

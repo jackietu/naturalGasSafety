@@ -1,0 +1,120 @@
+/* pages/login/index.wxss */
+
+.login {
+  background: #fff;
+}
+
+.login .lhead {
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.login .lhead>image {
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+}
+
+.login .lmain {
+  text-align: center;
+  padding: 40rpx;
+  position: absolute;
+  border: 1px solid #eee;
+  z-index: 99;
+  background: #fff;
+  top:50vw;
+  left:4vw;
+  right:4vw;
+  flex:1;
+  border-radius: 40rpx;
+}
+
+.login .lmain .pnum {
+  width: 100%;
+  margin: 40rpx auto;
+  font-size: 3.2vw;
+  position: relative;
+}
+
+.login .lmain .pnum input {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border: 1px solid #f8f8f8;
+  background: #f8f8f8;
+  text-align: left;
+  padding-left: 90rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  font-size: 3.2vw;
+  font-family: "微软雅黑";
+  color: #666;
+}
+
+.login .lmain .pnum .ppnum{
+  color: #ccc;
+  font-family: "微软雅黑";
+}
+
+.login .lmain .pnum .phoneicon {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 20rpx;
+  top: 30rpx;
+}
+
+.login .lmain .loginbtn {
+  margin: 0rpx auto;
+  margin-top: 30rpx;
+  position: relative;
+}
+
+.login .lmain .loginbtn button {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border: 0;
+  background: linear-gradient(to right, #5b85e5, #445df2);
+  border-radius: 50rpx;
+  color: #fff;
+  font-family: "微软雅黑";
+  font-size: 4vw;
+}
+
+.login .ljzc {
+  font-size: 3.2vw;
+  font-family: "微软雅黑";
+  color: #516fec;
+  float: right;
+  margin-top: 10px;
+}
+
+.login .zhmm {
+  font-size: 3.2vw;
+  font-family: "微软雅黑";
+  color: #516fec;
+  float: left;
+  margin-top: 10px;
+}
+
+.login .zcmm {
+  margin-bottom: 40rpx;
+}
+
+.qita {
+  margin: 20rpx auto;
+  font-size: 2.8vw;
+  position: relative;
+}
+
+.login .lmain .pnum .ppnum {
+  color: #ccc;
+  font-family: "微软雅黑";
+}
+
+.title{
+  padding-top:20rpx;
+  font-size: 4.2vw;
+}

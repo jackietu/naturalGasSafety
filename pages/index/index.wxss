@@ -1,0 +1,23 @@
+/**index.wxss**/
+
+page {
+  background: #f6f6f6;
+  font-family: "微软雅黑";
+  font-size: 4vw;
+  color: #666;
+}
+
+.width80{
+  width: 80vw;
+}
+
+.absoluteTitle{
+    position:absolute;
+    top:0;
+    right:3vw;
+    height:90rpx;
+    width:180rpx;
+    /* background: #0078fe; */
+    z-index:2;
+    display: flex;
+  }

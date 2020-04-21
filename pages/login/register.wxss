@@ -1,0 +1,136 @@
+/* pages/login/register.wxss */
+
+page{
+  background: url('https://gmzj.qunfangcloud.com:8180/gmzj/img/wechat_bg01.png') repeat;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  font-family: "微软雅黑";
+  font-size: 3.4vw;
+}
+
+.lmain {
+  text-align: center;
+  border: 1px solid #eee;
+  background: #fff;
+  margin:5vw 5vw;
+  flex:1;
+  border-radius: 10rpx;
+}
+
+.registerbtn {
+  margin-top: 30rpx;
+  font-size: 2.8vw;
+  position: relative;
+  margin:20rpx 40rpx;
+}
+
+.registerbtn button {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border: 0;
+  background: linear-gradient(to right, #5b85e5, #445df2);
+  border-radius: 50rpx;
+  color: #fff;
+  font-family: "微软雅黑";
+  font-size: 4vw;
+}
+
+/* components/index/colForm.wxss */
+.out2{
+  display: flex;
+  flex-direction: column;
+  margin:20rpx 40rpx;
+  color:#333333;
+  border-bottom: 1rpx solid #eee;
+}
+.lineHeight{
+  height: 50rpx;
+  line-height: 50rpx
+}
+.lineHeight2{
+  height: 70rpx;
+  line-height: 70rpx
+}
+.title{
+  font-size: 3.4vw;
+  text-align: left;
+}
+.input {
+  width: 100%;
+  border:0;
+  padding-left:0rpx;
+  text-align: left;
+  font-size: 3.4vw;
+  font-family: "微软雅黑";
+  color: #666;
+}
+.iptplaceholder{
+  color: #ccc;
+  font-family: "微软雅黑";
+}
+
+.imgDown {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 25rpx;
+}
+
+.relative{
+  position: relative;
+}
+
+.vid2 {
+  margin: 25rpx 0 0rpx;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap; */
+
+}
+
+.vid2 .jbjb>view {
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.vid2 .jbjb {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 5px;
+  margin-right: 20rpx;
+  float: left;
+  margin-bottom: 20rpx;
+}
+
+.vid2 .addimg, .vid2 .void {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 5px;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  float: left;
+  position: relative;
+}
+
+.vid2 .addimg .close, .vid2 .void .close {
+  width: 27rpx;
+  height: 27rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* .vid .addimg:nth-child(4n) {
+  margin-right: 0;
+} */
+
+.vid2 .addimg .aimg {
+  width: 160rpx;
+  height: 160rpx;
+}

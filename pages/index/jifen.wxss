@@ -1,0 +1,21 @@
+/* pages/index/jifen.wxss */
+.absoluteTitle{
+    position:absolute;
+    top:10rpx;
+    right:3vw;
+    height:70rpx;
+    width:180rpx;
+    background: #ff5918;
+    border-radius: 20rpx;
+    color:#fff;
+    z-index:2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lineHeight70{
+    height: 70rpx;
+    line-height: 70rpx;
+    width:40vw;
+  }

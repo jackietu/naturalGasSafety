@@ -1,0 +1,189 @@
+<!--index.wxml-->
+<view wx:if="{{type==1}}">
+  <view class="search">
+    <view class="out2">
+      <input type="text" bindinput="searchChange" placeholder="请输入楼栋编码或地址搜索" value="{{searchText}}" placeholder-class="input_placeholder" />
+      <view bindtap="searchMethod" class="searchIcon">
+        <image src="../../img/10.png" mode="widthFix"></image>
+      </view>
+    </view>
+
+    <view class="flexRow iconSearch">
+      <navigator url="/pages/index/map">
+        <image src="../../img/08.png" mode="widthFix"></image>
+      </navigator>
+      <image bindtap="scanSearch" src="../../img/09.png" mode="widthFix"></image>
+    </view>
+  </view>
+
+  <view class="listTotal">总记录数：{{total}}</view>
+
+  <!-- <view style="height:3vw"></view> -->
+
+  <navigator wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" url="{{'/pages/index/rectification?id='+item.dangerCheck.id}}" class="list">
+    <view class="absoluteArea {{item.days<=0?'':'last'}}"></view>
+    <view wx:if="{{item.days<=0}}" class="absoluteFont">
+      <view>超时</view>
+      <view>{{item.days*-1}}天</view>
+    </view>
+    <view wx:else class="absoluteFont">
+      <view>剩余</view>
+      <view>{{item.days}}天</view>
+    </view>
+    <view class="line">
+      <view>楼栋编码:</view>
+      <view>{{item.dangerCheck.roomCode}}</view>
+    </view>
+    <view class="line">
+      <view>房间号:</view>
+      <view>{{item.dangerCheck.roomNo}}</view>
+    </view>
+    <view class="line">
+      <view>地址:</view>
+      <view>{{item.dangerCheck.address}}</view>
+    </view>
+    <view class="line">
+      <view>联系电话:</view>
+      <view>{{item.dangerCheck.contactPhone}}</view>
+    </view>
+    <view class="line">
+      <view>指派日期:</view>
+      <view>{{item.dangerCheck.modifiedDate?item.dangerCheck.modifiedDate:item.dangerCheck.createDate}}</view>
+    </view>
+    <view class="line flexRow">
+      <view class="flexRow {{item.dangerCheck.gasType==1?'jmyq':'syyq'}}">
+        <image src="{{item.dangerCheck.gasType==1?'../../img/11.png':'../../img/12.png'}}" mode="widthFix"></image>{{item.dangerCheck.gasType==1?'居民用气':'商业用气'}}</view>
+      <view data-source="{{item.dangerCheck}}" class="flexRow distance" catchtap="goMap">
+        <image src="../../img/13.png" mode="widthFix"></image>距离当前位置{{item.distance}}公里</view>
+    </view>
+  </navigator>
+</view>
+<view wx:elif="{{type==2}}">
+ <view class="search">
+    <view class="out2 width80">
+      <input class="width80" bindinput="searchChange" type="text" value="{{searchText}}" placeholder="请输入楼栋编码或地址搜索" placeholder-class="input_placeholder" />
+      <view class="searchIcon">
+        <image bindtap="searchMethod" src="../../img/10.png" mode="widthFix"></image>
+      </view>
+    </view>
+
+    <view class="flexRow iconSearch" style="justify-content: flex-end;">
+      <image bindtap="scanSearch" src="../../img/09.png" mode="widthFix"></image>
+    </view>
+  </view>
+
+  <view class="listTotal">总记录数：{{total}}</view>
+
+  <navigator wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" url="{{'/pages/index/taskAssignment?id='+item.taskId}}" class="list">
+    <view class="absoluteArea {{item.days<=0 || item.hours<=0?'':'last'}}"></view>
+    <view wx:if="{{item.days<=0 || item.hours<=0}}" class="absoluteFont">
+      <view>超时</view>
+      <view>{{item.days==0?item.hours*-1+'小时':item.days*-1+'天'}}</view>
+    </view>
+    <view wx:else class="absoluteFont">
+      <view>剩余</view>
+      <view>{{item.days==0?item.hours+'小时':item.days+'天'}}</view>
+    </view>
+    <view class="line">
+      <view>楼栋编码:</view>
+      <view>{{item.buildCode}}</view>
+    </view>
+    <view class="line">
+      <view>房间号:</view>
+      <view>{{item.roomNo}}</view>
+    </view>
+    <view class="line">
+      <view>地址:</view>
+      <view>{{item.address}}</view>
+    </view>
+    <view class="line">
+      <view>联系电话:</view>
+      <view>{{item.contactPhone}}</view>
+    </view>
+    <view class="line">
+      <view>巡查日期:</view>
+      <view>{{item.modifiedDate?item.modifiedDate:item.createDate}}</view>
+    </view>
+    <view class="line">
+      <view>超时时间:</view>
+      <view style="color:#f58401;">{{item.overDate}}</view>
+    </view>
+    <view class="line flexRow">
+      <view class="flexRow {{item.gasType==1?'jmyq':'syyq'}}">
+        <image src="{{item.gasType==1?'../../img/11.png':'../../img/12.png'}}" mode="widthFix"></image>{{item.gasType==1?'居民用气':'商业用气'}}</view>
+      <view data-source="{{item}}" class="flexRow distance" catchtap="goUserMap">
+        <image src="../../img/20.png" mode="widthFix"></image>地图定位</view>
+    </view>
+  </navigator>
+</view>
+
+<view wx:else>
+  <view class="search">
+    <view class="out2 width80">
+      <input class="width80" type="text" value="{{searchText}}" bindinput="searchChange" placeholder="请输入楼栋编码或地址搜索" placeholder-class="input_placeholder" />
+      <view bindtap="searchMethod" class="searchIcon">
+        <image src="../../img/10.png" mode="widthFix"></image>
+      </view>
+    </view>
+
+    <view class="flexRow iconSearch" style="justify-content: flex-end;">
+      <image bindtap="scanSearch" src="../../img/09.png" mode="widthFix"></image>
+    </view>
+  </view>
+  <view class="dwsh clearfix dwshsearch">
+    <view class="gright">
+      <picker bindchange="bindPickerChange" data-source="1" value="{{index}}" range="{{enterprises}}" mode="selector">
+        <view class="picker">
+          {{enterprises[enterpriseIdx]}}
+        </view>
+        <view class="xlarrow"></view>
+      </picker>
+
+    </view>
+    <view class="gright">
+      <picker bindchange="bindPickerChange" data-source="2" value="{{index}}" range="{{streets}}" mode="selector">
+        <view class="picker">
+          {{streets[streetIdx]}}
+        </view>
+        <view class="xlarrow"></view>
+      </picker>
+
+    </view>
+    <!-- <view class="gright">
+      <picker bindchange="bindPickerChange" data-source="3" value="{{index}}" range="{{departments}}" mode="selector">
+        <view class="picker">
+          {{departments[dptIdx]}}
+        </view>
+        <view class="xlarrow"></view>
+      </picker>
+
+    </view> -->
+  </view>
+
+  <view class="listTotal">总记录数：{{total}}</view>
+  <!-- <view style="height:3vw"></view> -->
+
+  <navigator wx:for="{{list}}" wx:key url="{{'/pages/index/info?itemId='+item.itemId+'&company='+item.company}}" class="list">
+    <view class="absoluteTitle">
+      <view class="flexRow {{item.gasType==1?'jmyq':'syyq'}}">
+        <image src="{{item.gasType==1?'../../img/11.png':'../../img/12.png'}}" mode="widthFix"></image>{{item.gasType==1?'居民用气':'商业用气'}}</view>
+    </view>
+    <view class="line">
+      <view>所属企业:</view>
+      <view>{{item.company}}</view>
+    </view>
+    <view class="line">
+      <view>整改人:</view>
+      <view>{{item.dealType==0?item.dealUser:'街道处置'}}</view>
+    </view>
+    <view class="line">
+      <view>地址:</view>
+      <view>{{item.address}}</view>
+    </view>
+    <view class="line">
+      <view>上报日期:</view>
+      <view>{{item.createDate}}</view>
+    </view>
+  </navigator>
+</view>
+

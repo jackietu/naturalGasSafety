@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "colForm": "/components/index/colForm"
+  },
+  "navigationBarTitleText": "注册"
+}

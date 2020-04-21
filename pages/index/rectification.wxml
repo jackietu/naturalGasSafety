@@ -1,0 +1,157 @@
+<!--pages/index/rectification.wxml-->
+<form bindsubmit="dealTaskDanger">
+  <view class="backWhite">
+    <view class="header">
+      <image src="../../img/22.png" mode="widthFix"></image>
+      <view>基本信息</view>
+    </view>
+    <view class="out">
+      <view class="first">楼栋编码：</view>
+      <input class="input" type="text" value="{{check.buildCode}}" placeholder-class="input_placeholder" disabled="true" />
+    </view>
+    <view class="out">
+      <view class="first">
+        <text class="must">*</text>房屋编码：</view>
+      <input class="input" type="text" value="{{check.roomCode}}" placeholder-class="input_placeholder" disabled="true" />
+    </view>
+    <view class="out">
+      <view class="first">
+        <text class="must">*</text>地址：</view>
+      <input class="input" type="text" value="{{check.address}}" placeholder-class="input_placeholder" disabled="true" />
+    </view>
+    <view class="out">
+      <view class="first">
+        <text class="must">*</text>房间号：</view>
+      <input class="input" type="text" value="{{check.roomNo}}" placeholder-class="input_placeholder" disabled="true" />
+    </view>
+    <view class="out">
+      <view class="first">
+        <text class="must">*</text>用气类型：
+      </view>
+      <view class="gright checkbox">
+        <view class="viewlabel">
+          <view class="viewradio {{check.gasType==1?'viewradiocheck':''}}">
+            <view></view>
+          </view>
+          <text>居民用气</text>
+        </view>
+        <view class="viewlabel">
+          <view class="viewradio {{check.gasType==2?'viewradiocheck':''}}">
+            <view></view>
+          </view>
+          <text>商业用气</text>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="out">
+    <view class="first">
+      <text class="must">*</text>气瓶二维码：</view>
+    <input class="input" type="text" value="" placeholder-class="input_placeholder" disabled="true" />
+  </view> -->
+  </view>
+
+  <view class="backWhite" style="margin-top:3vw;">
+    <view class="header">
+      <image src="../../img/23.png" mode="widthFix"></image>
+      <view>安全隐患检查项</view>
+    </view>
+    <view class="checkList" wx:for="{{itemList}}" wx:for-index="index" wx:for-item="dangerItem" wx:key="{{dangerItem.item.id}}">
+      <view>{{dangerItem.item.itemName}}：</view>
+      <view class="checkbox flexColumn">
+        <view wx:for="{{dangerItem.detailList}}" wx:for-index="detIdx" wx:for-item="detail" wx:key="{{detail.id}}">
+          <view class="flexRow">
+            <view class="viewlabel" style="padding-top:45rpx;" data-source="{{detail}}" bindtap="switchCheck">
+              <view class="viewcheck">
+                <image wx:if="{{detail.checked}}" src="/img/lright.png" />
+              </view>
+              <text style="{{detail.isImmediate!=1?'width:80vw;color:#5b85e5;':'width:80vw;'}}">{{detail.dangerName}}</text>
+            </view>
+          </view>
+          <view class="grinfo">
+            <view class="gint">
+              <view class="gleft" style="padding-right: 20rpx;">
+                隐患图片
+              </view>
+              <view class="gright">
+                <view class="vid clearfix">
+                  <block wx:for="{{detail.beforeImages}}" wx:for-item="image" wx:for-index="index" wx:key="{{index}}">
+                    <view class="addimg">
+                      <image data-type="1" data-source="{{detail}}" data-index="{{index}}" src="{{filePrevPath + image.filePath}}" mode="aspectFill" class="aimg" bindtap="previewImage"></image>
+                    </view>
+                  </block>
+                </view>
+              </view>
+            </view>
+
+
+            <!-- <view wx:if="{{detail.isImmediate!=1}}" data-source="{{detail}}" class="viewlabel"  bindtap="switchIsSelectImmediate">
+              <view class="viewradio {{detail.isSelectImmediate?'viewradiocheck':''}}">
+                <view></view>
+              </view>
+              <text style="color:#07c160;">现场整改</text>
+            </view> -->
+
+            <view wx:if="{{detail.checked}}" class="gint">
+              <view class="gleft" style="padding-right: 20rpx;">
+                整改图片
+              </view>
+              <view class="gright">
+                <view class="vid clearfix">
+                  <image data-type="2" data-source="{{detail}}" src="/img/pz.png" mode="aspectFill" class="jbjb" bindtap="moreImage"></image>
+                  <block wx:for="{{detail.afterImages}}" wx:for-item="image" wx:for-index="index" wx:key="{{index}}">
+                    <view class="addimg">
+                      <image data-type="2" data-source="{{detail}}" data-index="{{index}}" src="{{filePrevPath + image.filePath}}" mode="aspectFill" class="aimg" bindtap="previewImage"></image>
+                      <image data-type="2" data-source="{{detail}}" data-index="{{index}}" src="/img/close.png" mode="widthFix" class="close" bindtap="deleteImage"></image>
+                    </view>
+                  </block>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="backWhite" style="margin-top:3vw;">
+    <view class="checkList">
+      <view>
+        <text class="must">*</text>整改结果：</view>
+      <view class="checkbox">
+        <view class="viewlabel" data-result="6" bindtap="switchDealResult">
+          <view class="viewradio {{dealResult==6?'viewradiocheck':''}}">
+            <view></view>
+          </view>
+          <text>已完成整改</text>
+        </view>
+        <view class="viewlabel" data-result="5" bindtap="switchDealResult">
+          <view class="viewradio {{dealResult==5?'viewradiocheck':''}}">
+            <view></view>
+          </view>
+          <text>部分完成整改</text>
+        </view>
+        <!-- <view class="viewlabel">
+          <view class="viewradio">
+            <view></view>
+          </view>
+          <text>延后整改</text>
+        </view> -->
+      </view>
+    </view>
+    <view class="gint" style="padding:0 4vw;">
+      <view class="gleft remarkTxt leftTxt">
+        备注：
+      </view>
+      <view class="gright">
+        <textarea placeholder="请输入" name='remark' style="margin-top: 0;height:150rpx;" placeholder-style="color:#ccc" />
+      </view>
+    </view>
+  </view>
+
+  <view class="loginbtn">
+    <button hover-class="none" formType="submit">确定</button>
+  </view>
+</form>
+
+
+<scanAlert id="scanAlert" imageUrl="{{scanUrl}}" bindpevent="parentEvent"></scanAlert>

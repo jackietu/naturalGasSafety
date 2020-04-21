@@ -1,0 +1,43 @@
+<!--pages/index/registerAudit.wxml-->
+<view class="out">
+  <view class="first">电话号码：</view>
+  <view class="second">{{userInfo.mobile}}</view>
+</view>
+<view class="out">
+  <view class="first">姓名：</view>
+  <view class="second">{{userInfo.name}}</view>
+</view>
+<view class="out" wx:if="{{userInfo.roleIds[0]!=101}}">
+  <view class="first">所属企业：</view>
+  <view class="second">{{userInfo.deptName}}</view>
+</view>
+<view class="out" wx:if="{{userInfo.roleIds[0]==101}}">
+  <view class="first">所属运营点：</view>
+  <view class="second">{{userInfo.deptName}}</view>
+</view>
+<view class="out">
+  <view class="first">申请角色：</view>
+  <view class="second">{{userInfo.roleIds[0]==101?'巡查员':'企业负责人'}}</view>
+</view>
+<view class="grinfo" style="margin: 4vw;">
+  <view class="gint" style="margin-top:0;">
+    <view class="gleft first">
+      证书：
+    </view>
+    <view class="gright">
+      <view class="vid clearfix">
+        <block wx:for="{{list}}" wx:for-item="image" wx:for-index="index" wx:key="{{index}}">
+          <view class="addimg">
+            <image class="aimg" data-index="{{index}}" src="{{filePrevPath + image}}" mode="aspectFill" bindtap="previewImage"></image>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="buttomView flexRow">
+  <button class="lineHeight" style="background:#fea846;" hover-class="none" data-type="1" bindtap="updateUserStatus">通过</button>
+  <button class="lineHeight" style="background:#2ecc71;" hover-class="none" data-type="3" bindtap="updateUserStatus">不通过</button>
+</view>

@@ -1,0 +1,719 @@
+/**app.wxss**/
+
+page {
+  background: #f6f6f6;
+  font-family: "微软雅黑";
+}
+
+.flex {
+  display: flex;
+}
+
+.listTotal{
+  font-size:4vw;
+  padding-left:3vw;
+  height:90rpx;
+  line-height: 90rpx;
+  color: #5b85e5
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+  font-family: "微软雅黑";
+}
+
+.tab {
+  flex-direction: row;
+  color: #666;
+  overflow: hidden;
+  font-family: "微软雅黑";
+  font-size: 30rpx;
+}
+
+.tab view {
+  width: 33.33333%;
+  float: left;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+  box-sizing: border-box;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.tab view.tabthis {
+  color: #488cbf;
+  border-bottom: 2px solid #488cbf;
+}
+
+.navigator-arrow::after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #999;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -8rpx;
+  right: 28rpx;
+}
+
+picker {
+  font-size: 28rpx;
+  border: 1px solid #ccc;
+  padding: 0rpx 10rpx;
+  border-radius: 5px;
+  position: relative;
+  height: 70rpx;
+  line-height: 70rpx;
+  box-sizing: border-box;
+}
+
+picker .xlarrow {
+  position: absolute;
+  right: 28rpx;
+  top: 16rpx;
+  width: 22rpx;
+  height: 22rpx;
+  border-bottom: 1px solid #999;
+  border-right: 1px solid #999;
+  transform: rotate(45deg);
+}
+
+textarea {
+  width: 100%;
+  height: 220rpx;
+  font-size: 28rpx;
+  border: 1px solid #ccc;
+  padding: 20rpx 24rpx;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+
+button {
+  font-family: "微软雅黑";
+  font-size: 34rpx;
+  background: #35cbec;
+  color: #fff;
+  height: 88rpx;
+  line-height: 88rpx;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+  border: 1px solid #ccc;
+}
+
+button::after {
+  border: 0;
+}
+
+input {
+  font-size: 28rpx;
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 70rpx;
+  padding-left: 20rpx;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: "微软雅黑";
+}
+
+.input_placeholder {
+  color: #ccc;
+}
+
+.fgt {
+  height: 16rpx;
+  background: #f3f3f3;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.flexRow{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexColumn{
+  display: flex;
+  flex-direction: column;
+}
+
+.backWhite{
+  background: #fff;
+}
+
+.gint {
+  display: flex;
+  margin-top: 26rpx;
+}
+
+.gint .gleft {
+  font-size: 3.4vw;
+  font-family: "微软雅黑";
+  color: #666;
+  width: 150rpx;
+  /* width:45vw; */
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.gint .gright {
+  width: 100%;
+  position: relative;
+}
+
+
+.vid {
+  margin: 25rpx 0 0rpx;
+}
+
+.vid .jbjb>view {
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.vid .jbjb {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 5px;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  float: left;
+}
+
+.vid .addimg, .vid .void {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 5px;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  float: left;
+  position: relative;
+}
+
+.vid .addimg .close, .vid .void .close {
+  width: 27rpx;
+  height: 27rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* .vid .addimg:nth-child(4n) {
+  margin-right: 0;
+} */
+
+.vid .addimg .aimg {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+textarea {
+  width: 100%;
+  height: 220rpx;
+  font-size: 3.4vw;
+  padding: 0rpx 24rpx;
+  border-radius: 5px;
+  box-sizing: border-box;
+  /* margin-top: 20rpx; */
+  border:0;
+  color:#666;
+}
+
+
+/* 隐患 */
+
+.header {
+  padding-left: 4vw;
+  font-size: 4vw;
+  font-family: "微软雅黑";
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #eee;
+  position: relative;
+}
+
+.header image {
+  width: 45rpx;
+  height: 45rpx;
+  margin-right: 20rpx;
+}
+
+.out {
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 0 4vw;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  flex-direction: row;
+  font-size: 3.4vw;
+  font-family: "微软雅黑";
+  position: relative;
+}
+
+.must {
+  color: red;
+}
+
+.first {
+  /* width: 200rpx; */
+  width: 150rpx;
+  text-align: right;
+  color: #333;
+}
+
+.second {
+  margin-left: 30rpx;
+  text-align: left;
+  color: #666;
+}
+
+.out .input {
+  flex: 1;
+  height: 90rpx;
+  line-height: 90rpx;
+  border: 0;
+  padding-left: 0rpx;
+  text-align: left;
+  font-size: 3.4vw;
+  margin-left: 30rpx;
+  font-family: "微软雅黑";
+  color: #666;
+}
+
+.out .absoluteScan {
+  position: absolute;
+  right: 0rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index:999;
+}
+
+.out .absoluteScan image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left:30rpx;
+}
+
+.checkbox .viewlabel {
+  padding-top: 19rpx;
+}
+
+.viewlabel {
+  padding: 19rpx 0rpx;
+  /* flex: 1; */
+  display: flex;
+  align-items: center;
+}
+
+.viewlabel text {
+  font-family: "微软雅黑";
+  font-size: 3.4vw;
+  margin-right: 50rpx;
+  color: #666;
+  display: inline-block;
+  float: left;
+  height: 30rpx;
+  line-height: 30rpx;
+  margin-top: 2rpx;
+}
+
+.viewradio {
+  width: 30rpx;
+  height: 30rpx;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  float: left;
+  margin-right: 10rpx;
+}
+
+.viewcheck {
+  width: 32rpx;
+  height: 32rpx;
+  border: 1px solid #ccc;
+  float: left;
+  margin-right: 10rpx;
+}
+
+.viewradiocheck>view {
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  background: #666;
+  margin: 8rpx;
+}
+
+.viewcheck image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: center;
+}
+
+.checkList {
+  padding: 5vw 0;
+  margin: 0 4vw;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  flex-direction: column;
+  font-size: 3.4vw;
+  color: #333;
+  font-family: "微软雅黑";
+}
+
+.checkList .checkbox {
+  margin-top: 10rpx;
+}
+
+.out:last-of-type, .checkList:last-of-type {
+  border-bottom: 0;
+}
+
+.leftTxt, .gint .leftTxt {
+  width: 160rpx;
+  text-align: left;
+}
+
+.gint .remarkTxt {
+  color: #333;
+  font-size: 3.4vw;
+  align-items: flex-start;
+}
+
+.loginbtn {
+  margin: 5vw 4vw;
+  position: relative;
+}
+
+.loginbtn button {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border: 0;
+  background: linear-gradient(to right, #5b85e5, #445df2);
+  border-radius: 50rpx;
+  color: #fff;
+  font-family: "微软雅黑";
+  font-size: 3.4vw;
+}
+
+.signOut{
+  height:300rpx;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sign {
+  position: absolute;
+  bottom: 20rpx;
+  right: 10rpx;
+  color: #666;
+  font-size: 3vw;
+}
+
+.signImg{
+  width:240rpx;
+  height: 240rpx;
+}
+/**   隐患结束  **/
+
+/** 列表 **/
+
+.search {
+  padding: 3vw 5vw;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+}
+
+.search .out2 {
+  position: relative;
+  width: 70vw;
+  border-bottom: 0;
+}
+
+.search input {
+  width: 70vw;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid #f8f8f8;
+  background: #f8f8f8;
+  text-align: left;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  font-size: 3.4vw;
+  font-family: "微软雅黑";
+  color: #666;
+}
+
+.search .searchIcon {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 999;
+}
+
+.search .searchIcon image {
+  width: 40rpx;
+  height: 40rpx;
+  z-index:998;
+}
+
+.iconSearch{
+  flex:1;
+  padding-left:20rpx;
+}
+
+.flexRow image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.list{
+  margin-bottom:3vw;
+  padding: 0 3vw;
+  font-size: 3.4vw;
+  background: #fff;
+  position: relative;
+}
+
+.list .line{
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  flex-direction: row;
+}
+
+.list .line view:first-of-type{
+  width:120rpx;
+  text-align: right;
+}
+
+.list .line view:last-of-type{
+  color:#333;
+  margin-left: 3vw
+}
+
+.list .line:last-of-type{
+  border: 0;
+}
+
+.jmyq{
+  flex:1;
+  color:#5ac255;
+}
+
+.syyq{
+  flex:1;
+  color:#e7ab63;
+}
+
+.list .line view.distance:last-of-type{
+  color:#6b80ee;
+}
+
+.jmyq,.syyq,.distance{
+  justify-content: flex-start;
+}
+
+.jmyq image,.syyq image,.distance image{
+  width:40rpx;
+  height:40rpx;
+  margin-right:2vw;
+}
+
+.absoluteArea{
+    position:absolute;
+    top:0;
+    right:0;
+    height:160rpx;
+    border-top: 160rpx solid red;
+    border-left: 160rpx solid transparent;
+    z-index:2;
+    display: flex;
+  }
+
+  .absoluteFont{
+    position:absolute;
+    color:#fff;
+    top:0;
+    right:0;
+    z-index:3;
+    width:80rpx;
+    font-size:3.2vw;
+    font-weight: bold;
+    margin-top:15rpx;
+    margin-right:5rpx;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+     -moz-transform: rotate(45deg);/* Firefox 旋转属性，参数表示角度(deg表示角度)，负数逆时针，正数顺时针 */
+    -webkit-transform: rotate(45deg);/* Safari和Chrome */
+    -ms-transform: rotate(45deg);/* IE 9 */
+    -o-transform: rotate(45deg);/* Opera */
+  }
+
+  .last{
+    border-top: 160rpx solid #f58401;
+  }
+/** 列表结束 **/
+
+/** 弹窗 **/
+.zzc {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  z-index: 999;
+}
+
+.zzc .grinfo {
+  max-height: 40vh;
+  overflow: scroll;
+  width: 100%;
+}
+
+.zzc .mainrydd {
+  background: #fff;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  padding: 0;
+  margin-top: 20%;
+  margin-bottom: 5%;
+  padding-bottom: 0.01vw;
+}
+
+.zzc .mainrydd .head {
+  font-size: 4vw;
+  padding: 3vw 0;
+  color:#333;
+  border-bottom:1rpx solid #ccc;
+}
+
+.zzc .mainrydd .head text {
+  margin-left: 3vw;
+}
+
+.zzc .mainrydd .head image {
+  float: right;
+  width: 4vw;
+  margin-right: 3vw;
+  margin-top: 1vw;
+}
+
+.zzc .mainrydd .grinfo {
+  padding-left: 20rpx;
+}
+
+.zzc .mainrydd .grinfo .viewradio1 {
+  margin-right: 20rpx;
+}
+
+.zzc .tixian {
+  padding: 0 4vw;
+  margin-bottom: 2vw;
+}
+
+.grinfo .gint:last-of-type{
+  margin-bottom: 26rpx;
+}
+/** 弹窗结束 **/
+
+/** 搜索下拉框样式 **/
+.dwsh {
+  background-color: #fff;
+  padding: 3vw;
+}
+
+.dwsh .d1 {
+  position: relative;
+  width: 77vw;
+  margin-right: 2vw;
+}
+
+.dwsh .w94 {
+  width: 94vw;
+}
+
+.dwsh .ss {
+  width: 15vw;
+  height: 10vw;
+  line-height: 10vw;
+  background-color: #35cbec;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 4vw;
+}
+
+.dwsh input {
+  height: 10vw;
+  padding-right: 10vw;
+}
+
+.dwshsearch {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0;
+}
+
+.dwsh .gright {
+  width: 45vw;
+  position: relative;
+}
+/** 搜索下拉框样式结束 **/

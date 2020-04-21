@@ -1,0 +1,182 @@
+<!--pages/index/taskAssignment.wxml-->
+<scroll-view scroll-y="{{!isShowAssign}}" style="height:100vh;"> 
+<view class="backWhite">
+  <view class="header">
+    <image src="../../img/22.png" mode="widthFix"></image>
+    <view>基本信息</view>
+  </view>
+  <view class="out">
+    <view class="first">楼栋编码：</view>
+    <input class="input" type="text" value="{{check.buildCode}}" placeholder-class="input_placeholder" disabled="true" />
+  </view>
+  <view class="out">
+    <view class="first">
+      <text class="must">*</text>房屋编码：</view>
+    <input class="input" type="text" value="{{check.roomCode}}" placeholder-class="input_placeholder" disabled="true" />
+  </view>
+  <view class="out">
+    <view class="first">
+      <text class="must">*</text>地址：</view>
+    <input class="input" type="text" value="{{check.address}}" placeholder-class="input_placeholder" disabled="true" />
+  </view>
+  <view class="out">
+    <view class="first">
+      <text class="must">*</text>房间号：</view>
+    <input class="input" type="text" value="{{check.roomNo}}" placeholder-class="input_placeholder" disabled="true" />
+  </view>
+  <view class="out">
+    <view class="first">
+      <text class="must">*</text>用气类型：
+    </view>
+    <view class="gright checkbox">
+      <view class="viewlabel">
+        <view class="viewradio {{check.gasType==1?'viewradiocheck':''}}">
+          <view></view>
+        </view>
+        <text>居民用气</text>
+      </view>
+      <view class="viewlabel">
+        <view class="viewradio {{check.gasType==2?'viewradiocheck':''}}">
+          <view></view>
+        </view>
+        <text>商业用气</text>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="out">
+    <view class="first">
+      <text class="must">*</text>气瓶二维码：</view>
+    <input class="input" type="text" name="user" placeholder="扫码气瓶二维码自动添加" value="" placeholder-class="input_placeholder" disabled="true" />
+    <view class="absoluteScan">
+      <image src="../../img/09.png" mode="widthFix"></image>
+    </view>
+  </view> -->
+</view>
+
+<view class="backWhite" style="margin-top:3vw;">
+  <view class="header">
+    <image src="../../img/23.png" mode="widthFix"></image>
+    <view>安全隐患检查项</view>
+  </view>
+  <view class="checkList" wx:for="{{itemList}}" wx:for-index="index" wx:for-item="dangerItem" wx:key="{{dangerItem.item.id}}">
+    <view>{{dangerItem.item.itemName}}：</view>
+    <view class="checkbox flexColumn">
+      <view wx:for="{{dangerItem.detailList}}" wx:for-index="detIdx" wx:for-item="detail" wx:key="{{detail.id}}">
+        <view class="flexRow">
+          <view class="viewlabel" style="padding-top:45rpx;">
+            <view class="viewcheck">
+              <image src="/img/lright.png" />
+            </view>
+            <text style="width:80vw;">{{detail.dangerName}}</text>
+          </view>
+        </view>
+        <view class="grinfo">
+          <view class="gint">
+            <view class="gleft" style="padding-right: 20rpx;">
+              隐患图片
+            </view>
+            <view class="gright">
+              <view class="vid clearfix">
+                <block wx:for="{{detail.beforeImages}}" wx:for-item="image" wx:for-index="index" wx:key="{{index}}">
+                  <view class="addimg">
+                    <image data-type="1" data-source="{{detail}}" data-index="{{index}}" src="{{filePrevPath + image.filePath}}" mode="aspectFill" class="aimg" bindtap="previewImage"></image>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+
+          <view wx:if="{{detail.afterImages.length>0}}" class="gint">
+            <view class="gleft" style="padding-right: 20rpx;">
+              整改图片
+            </view>
+            <view class="gright">
+              <view class="vid clearfix">
+                <block wx:for="{{detail.afterImages}}" wx:for-item="image" wx:for-index="index" wx:key="{{index}}">
+                  <view class="addimg">
+                    <image data-type="2" data-source="{{detail}}" data-index="{{index}}" src="{{filePrevPath + image.filePath}}" mode="aspectFill" class="aimg" bindtap="previewImage"></image>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="backWhite" style="margin:3vw 0;">
+  <!-- <view class="checkList">
+    <view>被检查人签名确认：</view>
+  </view>
+  <view class="checkList signOut">
+    <image src="/img/pz.png" mode="aspectFill" class="signImg"></image>
+    <view class="sign">确认时间：2019-08-08</view>
+  </view> -->
+  <view class="gint" style="padding:4vw;">
+    <view class="gleft remarkTxt leftTxt">
+      备注：
+    </view>
+    <view class="gright">
+      <!-- <textarea disabled="true" value="{{check.remark}}" name='remark' style="margin-top: 0;height:150rpx;" placeholder-style="color:#ccc" /> -->
+      <view style="font-size: 3.4vw;color: #666;margin-top: 0;height:150rpx;">{{check.remark}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="loginbtn">
+  <button hover-class="none" bindtap="showAssign">任务指派</button>
+</view>
+</scroll-view>
+
+<!-- 选择弹框 -->
+<view class="zzc" style="display:{{isShowAssign?'':'none'}}">
+  <view class="mainrydd" style="width: 96%;">
+    <view class="head">
+      <text>任务指派</text>
+      <image src="/img/closexx.png" alt="" data-show="0" bindtap="onCloseAssign" mode='widthFix'></image>
+    </view>
+    <view style="height:800rpx;overflow: scroll;">
+      <view class="out2">
+        <input style="width:100%" type="text" bindinput="searchChange" value="{{searchText}}" placeholder="巡查员姓名" placeholder-class="input_placeholder" />
+        <view bindtap="searchMethod" class="searchIcon" style="z-index:999;">
+          <image src="../../img/10.png" mode="widthFix"></image>
+        </view>
+      </view>
+      <view class="header titleHeader" data-type="1" bindtap="showLine">
+        <view>在线（{{person.onLine.length}}）</view>
+        <view class="rightIcon">
+          <image src="{{person.showOnline?'../../img/down.png':'../../img/up.png'}}" class="imgDown" mode="widthFix"></image>
+        </view>
+      </view>
+      <view wx:if="{{person.showOnline}}" wx:for="{{person.onLine}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class="out2 backeee">
+        <view class="flexRow lh60">
+          <view>{{item.name?item.name:item.username}}</view>
+          <view style="color:#0099FF;">已有整改任务（{{item.taskNumber}}）</view>
+        </view>
+        <view class="flexRow lh60">
+          <view style="color:#0099FF;">{{item.distance<0?'无法计算距离公里数':'距离事件位置'+item.distance+'公里'}}</view>
+          <view data-id="{{item.id}}" data-name="{{item.name?item.name:item.username}}" class="btnAssign" bindtap="btnAssign">指派</view>
+        </view>
+      </view>
+
+      <view class="header titleHeader" data-type="2" bindtap="showLine">
+        <view>离线（{{person.offLine.length}}）</view>
+        <view class="rightIcon">
+           <image src="{{person.showOffline?'../../img/down.png':'../../img/up.png'}}" class="imgDown" mode="widthFix"></image>
+        </view>
+      </view>
+      <view wx:if="{{person.showOffline}}" wx:for="{{person.offLine}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class="out2 backeee">
+        <view class="flexRow lh60">
+          <view>{{item.name?item.name:item.username}}</view>
+          <view style="color:#0099FF;">已有整改任务（{{item.taskNumber}}）</view>
+        </view>
+        <view class="flexRow lh60">
+          <view style="color:#0099FF;"></view>
+          <view data-id="{{item.id}}" data-name="{{item.name?item.name:item.username}}" class="btnAssign" bindtap="btnAssign">指派</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

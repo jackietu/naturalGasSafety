@@ -1,0 +1,32 @@
+<!--pages/login/index.wxml-->
+<view class="login">
+  <view class="lhead">
+    <image src="../../img/03.png" mode="widthFix"></image>
+  </view>
+  <view class="lmain">
+    <form bindsubmit="bindMobileLogin">
+      <view class="title">天然气末端安全监管系统</view>
+      <view class="pnum">
+        <input name="param1" value="{{param1}}" placeholder="请输入账号" placeholder-class="ppnum"/>
+        <image src="../../img/02.png" class="phoneicon" mode="widthFix"></image>
+      </view>
+      <view class="pnum">
+        <input type="type" password="true" name="param2" value="{{param2}}" placeholder="请输入密码" placeholder-class="ppnum"/>
+        <image src="../../img/01.png" class="phoneicon" mode="widthFix"></image>
+      </view>
+      <view class="loginbtn">
+        <button hover-class="none" form-type="submit">登录</button>
+      </view>
+
+      <view class="clearfix qita">
+          <navigator url="/pages/login/register" open-type="navigate" class="ljzc" hover-class="none">立即注册</navigator>
+          <!-- <navigator url="/pages/login/retrievePassword" open-type="navigate" class="zhmm" hover-class="none">找回密码</navigator> -->
+          <view bindtap="goVideo" class="zhmm" hover-class="none">找回密码</view>
+        </view>
+    </form>
+
+     
+  </view>
+</view>
+
+

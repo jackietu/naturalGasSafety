@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "scanAlert": "/components/index/scanAlert"
+  },
+  "navigationBarTitleText": "详情"
+}

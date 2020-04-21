@@ -1,0 +1,206 @@
+/* pages/index/wode.wxss */
+
+page {
+  background: #f6f6f6;
+}
+
+view {
+  font-size: 4vw;
+  font-family: "微软雅黑";
+}
+
+.info {
+  color: #fff;
+  font-size: 3.4vw;
+  padding: 5vw 6vw;
+  position: relative;
+  overflow: hidden;
+  background: #5b85e5;
+  display: flex;
+  flex-direction: column;
+}
+
+.info .tx {
+  float: left;
+  margin-right: 3vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.info .myxm {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 2vw;
+}
+
+.info .tx image {
+  width: 16vw;
+  height: 16vw;
+  border-radius: 10vw;
+}
+
+.name {
+  font-size: 4vw;
+  color: #fff;
+}
+
+.vw34 {
+  font-size: 3.4vw;
+}
+
+.marginR10 {
+  margin-right: 10rpx;
+}
+
+.adbff4 {
+  color: #adbff4;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.jf {
+  float: right;
+  height: 16vw;
+  font-size: 3.4vw;
+}
+
+.jf image {
+  width: 4vw;
+  height: 4vw;
+  margin-right: 10rpx;
+}
+
+.header2 {
+  margin-top: 10vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 12vw;
+}
+
+.list2 {
+  margin-top: 3vw;
+  background: #fff;
+  padding: 0 3vw;
+}
+
+.list2 .row {
+  height: 15vw;
+  line-height: 15vw;
+  border-bottom: 1px solid #f7f7f7;
+  color: #666;
+  font-size: 4vw;
+}
+
+.leftIcon {
+  width: 8vw;
+  height: 8vw;
+  margin-right: 3vw;
+}
+
+.absoluteTitle {
+  position: absolute;
+  top: 10rpx;
+  right: 3vw;
+  height: 70rpx;
+  width: 180rpx;
+  background: #ff5918;
+  border-radius: 20rpx;
+  color: #fff;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backColor {
+  background: #f2f2f2;
+  color: #666;
+}
+
+.lineHeight {
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 30vw;
+}
+
+.list view {
+  font-size: 3.4vw;
+}
+
+.search .width90 {
+  width: 90vw;
+}
+
+.backBlock {
+  margin: 5vw 3vw;
+  background: url('https://gmzj.qunfangcloud.com:8180/gmzj/img/wechat_bg02.png') no-repeat;
+  height: 100%;
+  background-size: cover;
+  padding: 5vw 3vw;
+  color: #fff;
+  border-radius: 20rpx;
+}
+
+.backBlock2 {
+  background: url('https://gmzj.qunfangcloud.com:8180/gmzj/img/wechat_bg03.png') no-repeat;
+}
+
+.vw45 {
+  font-size: 4.5vw;
+}
+
+.vw42 {
+  font-size: 4.2vw;
+}
+
+.vw40 {
+  font-size: 4.0vw;
+}
+
+.lastBlock {
+  margin: 5vw 3vw;
+  height: 100%;
+  padding: 0vw 3vw;
+  border-radius: 20rpx;
+  color: #666;
+  background: #fff;
+}
+
+.lastBlock .lineH {
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx dotted #eee;
+}
+
+.lastBlock .lineH view{
+  font-size: 3.4vw;
+}
+
+.lastBlock .lineH:first-of-type {
+  border-bottom: 1rpx solid #eee;
+  font-size: 4vw;
+}
+
+.lastBlock .lineH:last-of-type {
+  border-bottom: 0;
+}
+
+.color2 {
+  color: #f79168;
+}

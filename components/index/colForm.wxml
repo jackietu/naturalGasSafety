@@ -1,0 +1,21 @@
+<!--components/index/colForm.wxml-->
+<view class="out">
+  <view class="lineHeight title">{{title}}</view>
+  <view class="relative">
+    <view wx:if="{{hasImage}}" class="vid clearfix">
+      <image src="/img/pz.png" mode="aspectFill" class="jbjb"></image>
+      <block wx:for="{{images}}" wx:for-item="image" wx:for-index="index" wx:key="{{index}}">
+        <view class="addimg">
+          <image class="aimg" src="{{image}}" data-index="{{index}}" mode="aspectFill"></image>
+          <image src="/img/close.png" mode="widthFix" data-index="{{index}}" class="close"></image>
+        </view>
+      </block>
+    </view>
+    <input wx:elif="{{!isPicker}}" class="lineHeight2 input" type="text" name="user" placeholder="{{placeHolder}}" placeholder-class="iptplaceholder" />
+    <picker wx:else class="lineHeight2 input" bindchange="bindPickerChange" name="index" value="{{index}}" range="{{list}}" mode="selector">
+      <text wx:if="{{index==-1}}" class="iptplaceholder">{{placeHolder}}</text>
+      <text wx:else>{{list[index]}}</text>
+    </picker>
+    <image wx:if="{{isPicker}}" src="../../img/down.png" class="imgDown" mode="widthFix"></image>
+  </view>
+</view>

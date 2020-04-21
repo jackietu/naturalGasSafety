@@ -1,0 +1,140 @@
+<!--pages/wode/index.wxml-->
+<view wx:if="{{type==1}}">
+  <view class="info">
+    <view>
+      <view class="tx" id="touxian">
+        <image src="../../img/07.png" name="src"></image>
+
+        <view class="myxm">
+          <view>
+            <text class="name">{{userInfo.name}}</text>
+          </view>
+          <view>
+            <text class="vw34">{{userInfo.roleName}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="myxm jf">
+        <view class="row">
+          <image src="../../img/06.png" name="src"></image>
+          <navigator url="/pages/index/list?type=1" class="vw34 adbff4 row">
+            排查数：
+            <view class="name marginR10">{{userInfo.allCheckNumber}}</view>
+          </navigator>
+        </view>
+        <view class="row">
+          <image src="../../img/06.png" name="src"></image>
+          <navigator url="/pages/index/list?type=2" class="vw34 adbff4 row">
+            完成数：
+            <view class="name marginR10">{{userInfo.finishCheckNumber}}</view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+
+    <view class="header2">
+      <navigator url="{{'/pages/index/jifen?userId='+userInfo.id}}" class="col">
+        <view class="name">{{userInfo.lastMonthScore}}</view>
+        <text class="vw34 adbff4">上月累计积分</text>
+      </navigator>
+      <navigator url="{{'/pages/index/jifen?userId='+userInfo.id}}" class="col">
+        <view class="name">{{userInfo.allScore}}</view>
+        <text class="vw34 adbff4">全部累计积分</text>
+      </navigator>
+      <navigator url="{{'/pages/index/jifen?userId='+userInfo.id}}" class="col">
+        <view class="name">{{userInfo.lastQuarterScore}}</view>
+        <text class="vw34 adbff4">上季度累计积分</text>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="list2">
+    <view class="row">
+      <image class="leftIcon" src="../../img/04.png" name="src"></image>
+      <text>电话：</text>
+      <text style="color:#919191">{{userInfo.mobile}}</text>
+    </view>
+    <view class="row">
+      <image class="leftIcon" src="../../img/05.png" name="src"></image>
+      <text>所属企业：</text>
+      <text style="color:#919191">{{userInfo.deptName}}</text>
+    </view>
+  </view>
+</view>
+<view wx:elif="{{type==2}}">
+  <view class="search">
+    <view class="out2 width90">
+      <input class="width90" type="text" bindinput="searchChange" placeholder="请输入人员名称或地址搜索" placeholder-class="input_placeholder" />
+      <view bindtap="searchMethod" class="searchIcon">
+        <image src="../../img/10.png" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view style="height:3vw"></view> -->
+  <view class="listTotal">总记录数：{{total}}</view>
+
+  <view wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class="list">
+
+    <navigator url="{{'/pages/index/registerAudit?id='+item.id}}" wx:if="{{item.status==2}}" class="absoluteTitle" >
+      通过
+    </navigator>
+    <view wx:else class="absoluteTitle backColor" data-source="{{item}}" catchtap="delUser">
+      {{item.status==1?'已通过':item.status==0?'禁用':'审核不通过'}}
+    </view>
+    <view class="line">
+      <view style="width: 140rpx;">用户姓名:</view>
+      <view>{{item.name?item.name:item.username}}</view>
+    </view>
+    <view class="line">
+      <view style="width: 140rpx;">电话号码:</view>
+      <view>{{item.mobile}}</view>
+    </view>
+    <view class="line">
+      <view style="width: 140rpx;">所属运营点:</view>
+      <view>{{item.deptName}}</view>
+    </view>
+  </view>
+</view>
+<view wx:else>
+  <view class="backBlock">
+    <view class="vw42">月度概况</view>
+    <view class="header2">
+      <view class="col">
+        <navigator url="/pages/index/list" class="vw40">{{reportNum}}</navigator>
+        <text class="vw34">上报统一分拨</text>
+      </view>
+      <view class="col">
+        <navigator url="/pages/index/list" class="vw40">{{checkDangerNum}}</navigator>
+        <text class="vw34">隐患排查</text>
+      </view>
+      <view class="col">
+        <navigator url="/pages/index/list" class="vw40">{{dealDangerNum}}</navigator>
+        <text class="vw34">隐患整改</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="backBlock backBlock2">
+    <view class="vw42">月度异常情况</view>
+    <view class="header2">
+      <view class="col">
+        <navigator url="/pages/index/list" class="vw40">{{overTimeNum}}</navigator>
+        <text class="vw34">超时未处理隐患</text>
+      </view>
+      <view class="col">
+        <navigator url="/pages/index/list" class="vw40">{{notCheckCompanyNum}}</navigator>
+        <text class="vw34">月度排查隐患数为0的企业</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="lastBlock">
+    <view class="lineH">企业积分排名</view>
+    <view wx:for="{{scoreSort}}" wx:key class="flexRow lineH">
+      <view>{{item.company}}</view>
+      <view class="color2">{{item.score}}</view>
+    </view>
+  </view>
+</view>

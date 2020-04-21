@@ -1,0 +1,145 @@
+<!--pages/index/scanIndex.wxml-->
+<view wx:if="{{type==2}}">
+  <view class="search">
+    <view class="out2 width90">
+      <input class="width90" type="text" bindinput="searchChange" placeholder="请输入人员名称或地址搜索" placeholder-class="input_placeholder" />
+      <view bindtap="searchMethod" class="searchIcon">
+        <image src="../../img/10.png" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view style="height:3vw"></view> -->
+  <view class="listTotal">总记录数：{{total}}</view>
+
+  <navigator url="{{'/pages/index/info?isAudit=1&checkId='+item.checkCode+'&dealUser='+item.userIdCreate+'&rewardId='+item.id}}" wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class="list">
+    <!-- <view class="absoluteTitle" catchtap="auditJf">
+      审核
+    </view> -->
+    <view class="absoluteTitle">
+      审核
+    </view>
+    <view class="line">
+      <view style="width: 140rpx;">整改人姓名:</view>
+      <view>{{item.dealUserName}}</view>
+    </view>
+    <view class="line">
+      <view style="width: 140rpx;">整改时间:</view>
+      <view>{{item.modifiedDate?item.modifiedDate:item.createDate}}</view>
+    </view>
+    <view class="line">
+      <view style="width: 140rpx;">地址:</view>
+      <view>{{item.address}}</view>
+    </view>
+  </navigator>
+
+
+  <!-- 选择弹框 -->
+  <!-- <view class="zzc" style="display:{{isShowAudit?'':'none'}}">
+    <view class="mainrydd" style="width: 80%;">
+      <view class="head">
+        <text>积分审核</text>
+        <image src="/img/closexx.png" alt="" data-show="0" bindtap="onCloseAudit" mode='widthFix'></image>
+
+      </view>
+      <view class="grinfo">
+        <view class="gint" wx:for="{{auditStatusList}}" wx:key="{{item.id}}">
+          <view class="gright">
+            <view class="viewlabel clearfix" data-id="{{item.id}}" bindtap="onSelectName">
+              <view class="viewradio viewradiocheck">
+                <view></view>
+              </view>
+              <text style="">{{item.name}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="tixian flexRow">
+        <button class="lineHeight" style="background:#fea846;" hover-class="none">确定</button>
+        <button class="lineHeight" style="background:#2ecc71;" hover-class="none">取消</button>
+      </view>
+    </view>
+  </view> -->
+</view>
+
+<view wx:elif="{{type==3}}">
+  <view class="search">
+    <view class="out2 width90">
+      <input class="width90" type="text" bindinput="searchChange" placeholder="请输入用户名称" placeholder-class="input_placeholder" />
+      <view bindtap="searchMethod" class="searchIcon">
+        <image src="../../img/10.png" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view style="height:3vw"></view> -->
+  <view class="listTotal">总记录数：{{total}}</view>
+
+  <view wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" class="list">
+
+    <navigator url="{{'/pages/index/registerAudit?id='+item.id}}" wx:if="{{item.status==2}}" class="absoluteTitle">
+      审核
+    </navigator>
+    <view wx:else class="absoluteTitle backColor" data-source="{{item}}" catchtap="delUser">
+      删除
+    </view>
+    <view class="line">
+      <view style="width: 140rpx;">用户姓名:</view>
+      <view>{{item.name?item.name:item.username}}</view>
+    </view>
+    <view class="line">
+      <view style="width: 140rpx;">电话号码:</view>
+      <view>{{item.mobile}}</view>
+    </view>
+    <view class="line">
+      <view style="width: 140rpx;">所属运营点:</view>
+      <view>{{item.deptName}}</view>
+    </view>
+  </view>
+</view>
+
+<view wx:elif="{{type==4}}">
+  <view class="search">
+    <view class="out2 width80">
+      <input class="width80" type="text" bindinput="searchChange" placeholder="请输入房屋编码或地址搜索" value="{{searchText}}" placeholder-class="input_placeholder" />
+      <view bindtap="searchMethod" class="searchIcon">
+        <image src="../../img/10.png" mode="widthFix"></image>
+      </view>
+    </view>
+
+    <view bindtap="scanSearch" class="flexRow iconSearch" style="justify-content: flex-end;">
+      <image src="../../img/09.png" mode="widthFix"></image>
+    </view>
+  </view>
+
+  <view class="listTotal">总记录数：{{total}}</view>
+
+  <!-- <view style="height:3vw"></view> -->
+
+  <navigator wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}" url="{{'/pages/index/spotCheck?id='+item.id}}" class="list">
+    <view class="line">
+      <view>楼栋编码:</view>
+      <view>{{item.roomCode}}</view>
+    </view>
+    <view class="line">
+      <view>房间号:</view>
+      <view>{{item.roomNo}}</view>
+    </view>
+    <view class="line">
+      <view>地址:</view>
+      <view>{{item.address}}</view>
+    </view>
+    <view class="line">
+      <view>联系电话:</view>
+      <view>{{item.contactPhone}}</view>
+    </view>
+    <view class="line">
+      <view>整改日期:</view>
+      <view>{{item.dealTime?item.dealTime:item.createDate}}</view>
+    </view>
+    <view class="line flexRow">
+      <view class="flexRow {{item.gasType==1?'jmyq':'syyq'}}">
+        <image src="{{item.gasType==1?'../../img/11.png':'../../img/12.png'}}" mode="widthFix"></image>{{item.gasType==1?'居民用气':'商业用气'}}</view>
+    </view>
+  </navigator>
+</view>

@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/login/index",
+    "pages/index/index",
+    "pages/index/investigate",
+    "pages/index/rectification",
+    "pages/login/register",
+    "pages/index/registerAudit",
+    "pages/wode/index",
+    "pages/login/retrievePassword",
+    "pages/index/taskAssignment",
+    "pages/index/jifen",
+    "pages/index/info",
+    "pages/index/list",
+    "pages/index/map",
+    "pages/index/scanIndex",
+    "pages/index/spotCheck",
+    "pages/login/exit"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#5b85e5",
+    "navigationBarTitleText": "天然气末端安全监管系统",
+    "navigationBarTextStyle": "white",
+    "stopPullDownRefresh": true,
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#5b85e5",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "img/1_1.png",
+        "selectedIconPath": "img/1_2.png",
+        "text": "隐患整改"
+      },
+      {
+        "pagePath": "pages/index/scanIndex",
+        "iconPath": "img/1_3.png",
+        "selectedIconPath": "img/1_4.png",
+        "text": "隐患排查"
+      },
+      {
+        "pagePath": "pages/wode/index",
+        "iconPath": "img/1_5.png",
+        "selectedIconPath": "img/1_6.png",
+        "text": "我的信息"
+      },
+      {
+        "pagePath": "pages/login/exit",
+        "iconPath": "img/1_7.png",
+        "selectedIconPath": "img/1_8.png",
+        "text": "登出"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

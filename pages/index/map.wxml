@@ -1,0 +1,21 @@
+<!--pages/index/map.wxml-->
+<view class="topView">
+  <view wx:if="{{!isSingle}}" class="search">
+    <view class="out2 width80">
+      <input class="width80" value="{{searchText}}" bindinput="searchChange" type="text" name="user" placeholder="请输入楼栋编码或地址搜索" placeholder-class="input_placeholder" />
+      <view bindtap="searchMethod" class="searchIcon">
+        <image src="../../img/10.png" mode="widthFix"></image>
+      </view>
+    </view>
+
+    <view class="flexRow iconSearch" style="justify-content: flex-end;">
+      <image bindtap="scanSearch" src="../../img/09.png" mode="widthFix"></image>
+    </view>
+  </view>
+  <view class='view'>
+    <map wx:if="{{showLocation}}" show-location scale="14" longitude="{{lng}}" latitude="{{lat}}" markers="{{markers}}" bindcallouttap="calloutTap">
+    </map>
+    <map wx:else longitude="{{lng}}" latitude="{{lat}}" markers="{{markers}}" bindcallouttap="calloutUserTap">
+    </map>
+  </view>
+</view>

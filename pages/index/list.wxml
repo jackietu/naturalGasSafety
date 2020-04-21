@@ -1,0 +1,44 @@
+<!--pages/index/list.wxml-->
+<view class="search">
+  <view class="out2 width80">
+    <input class="width80" bindinput="searchChange" type="text" value="{{searchText}}" placeholder="请输入楼栋编码或地址搜索" placeholder-class="input_placeholder" />
+    <view bindtap="searchMethod" class="searchIcon">
+      <image src="../../img/10.png" mode="widthFix"></image>
+    </view>
+  </view>
+
+  <view  class="flexRow iconSearch" style="justify-content: flex-end;">
+    <image bindtap="scanSearch" src="../../img/09.png" mode="widthFix"></image>
+  </view>
+</view>
+
+<!-- <view style="height:3vw"></view> --> 
+<view class="listTotal">总记录数：{{total}}</view>
+
+<navigator wx:for="{{list}}" wx:key url="{{'/pages/index/info?isOnlyShow=true&id='+item.id+'&type='+type}}" class="list">
+
+  <view class="absoluteTitle">
+    <view class="flexRow {{item.gasType==1?'jmyq':'syyq'}}">
+      <image src="{{item.gasType==1?'../../img/11.png':'../../img/12.png'}}" mode="widthFix"></image>{{item.gasType==1?'居民用气':'商业用气'}}</view>
+  </view>
+  <view class="line">
+    <view>楼栋编码:</view>
+    <view>{{item.roomCode}}</view>
+  </view>
+  <view class="line">
+    <view>房间号:</view>
+    <view>{{item.roomNo}}</view>
+  </view>
+  <view class="line">
+    <view>地址:</view>
+    <view>{{item.address}}</view>
+  </view>
+  <view class="line">
+    <view>联系电话:</view>
+    <view>{{item.contactPhone}}</view>
+  </view>
+  <view class="line">
+    <view>指派日期:</view>
+    <view>{{item.dealTime?item.dealTime:item.createDate}}</view>
+  </view>
+</navigator>

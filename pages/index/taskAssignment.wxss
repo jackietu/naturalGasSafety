@@ -1,0 +1,90 @@
+/* pages/index/taskAssignment.wxss */
+
+.out2 {
+  position: relative;
+  border-bottom: 0;
+  margin: 2vw 3vw;
+  font-size: 3.4vw;
+}
+
+.out2 input {
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid #f8f8f8;
+  background: #f8f8f8;
+  text-align: left;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  font-size: 3.4vw;
+  font-family: "微软雅黑";
+  color: #666;
+}
+
+.out2 .searchIcon {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.searchIcon image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.titleHeader {
+  border: 0;
+  font-size: 3.4vw;
+  height: 80rpx;
+  line-height: 80rpx;
+  background: #ccc;
+  border-radius: 20rpx;
+  margin: 10rpx 15rpx;
+  position: relative;
+}
+
+.rightIcon {
+  position: absolute;
+  right: 20rpx;
+  top: 0rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.rightIcon .imgDown {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.backeee {
+  background: #eee;
+}
+
+.lh60 {
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 3vw;
+}
+
+.btnAssign {
+  background: #ff5918;
+  border-radius: 20rpx;
+  color: #fff;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240rpx;
+  height: 55rpx;
+}
+
+.viewcheck image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: center;
+}

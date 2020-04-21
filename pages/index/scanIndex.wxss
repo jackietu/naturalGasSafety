@@ -1,0 +1,46 @@
+/* pages/index/scanIndex.wxss */
+
+.absoluteTitle {
+  position: absolute;
+  top: 10rpx;
+  right: 3vw;
+  height: 70rpx;
+  width: 180rpx;
+  background: #169bd5;
+  border-radius: 20rpx;
+  color: #fff;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backColor {
+  background: #f2f2f2;
+  color: #666;
+}
+
+.lineHeight {
+  height: 70rpx;
+  line-height: 70rpx;
+  width: 30vw;
+}
+
+.search .width90 {
+  width: 90vw;
+}
+
+.width80 {
+  width: 80vw;
+}
+
+.absoluteTitle2 {
+  position: absolute;
+  top: 0;
+  right: 3vw;
+  height: 90rpx;
+  width: 180rpx;
+  /* background: #0078fe; */
+  z-index: 2;
+  display: flex;
+}

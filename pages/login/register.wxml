@@ -1,0 +1,86 @@
+<!--pages/login/register.wxml-->
+<view>
+  <view class="lmain">
+    <form bindsubmit="bindRegister">
+      <view class="out2">
+        <view class="lineHeight title"><text class="must">*</text>手机号码</view>
+        <view class="relative">
+          <input class="lineHeight2 input" type="number" name="mobile" placeholder="请输入电话号码" placeholder-class="iptplaceholder" />
+        </view>
+      </view>
+      <view class="out2">
+        <view class="lineHeight title"><text class="must">*</text>姓名</view>
+        <view class="relative">
+          <input class="lineHeight2 input" type="text" name="name" placeholder="请输入姓名" placeholder-class="iptplaceholder" />
+        </view>
+      </view>
+      <view class="out2">
+        <view class="lineHeight title"><text class="must">*</text>所属企业</view>
+        <view class="relative">
+          <picker class="lineHeight2 input" data-source="1" bindchange="bindPickerChange" value="{{enterIdx}}" range="{{enters}}" mode="selector">
+            <text wx:if="{{enterIdx==0}}" class="iptplaceholder">请选择</text>
+            <text wx:else>{{enters[enterIdx]}}</text>
+          </picker>
+          <image src="../../img/down.png" class="imgDown" mode="widthFix"></image>
+        </view>
+      </view>
+      <view class="out2">
+        <view class="lineHeight title"><text class="must">*</text>申请角色</view>
+        <view class="relative">
+          <picker class="lineHeight2 input" data-source="2" bindchange="bindPickerChange" name="roleIds" value="{{roleIdx}}" range="{{roles}}" mode="selector">
+            <text wx:if="{{roleIdx==0}}" class="iptplaceholder">请选择</text>
+            <text wx:else>{{roles[roleIdx]}}</text>
+          </picker>
+          <image src="../../img/down.png" class="imgDown" mode="widthFix"></image>
+        </view>
+      </view>
+      <view class="out2">
+        <view class="lineHeight title"><text wx:if="{{roleIdx==1}}" class="must">*</text>所属运营点</view>
+        <view class="relative">
+          <picker class="lineHeight2 input" data-source="3" bindchange="bindPickerChange" name="deptId" value="{{deptIdx}}" range="{{depts}}" mode="selector">
+            <text wx:if="{{deptIdx==0}}" class="iptplaceholder">请选择</text>
+            <text wx:else>{{depts[deptIdx]}}</text>
+          </picker>
+          <image src="../../img/down.png" class="imgDown" mode="widthFix"></image>
+        </view>
+      </view>
+      <view class="out2">
+        <view class="lineHeight title"><text class="must">*</text>密码</view>
+        <view class="relative">
+          <input class="lineHeight2 input" type="password" name="password" placeholder="请输入密码" placeholder-class="iptplaceholder" />
+        </view>
+      </view>
+      <view class="out2">
+        <view class="lineHeight title"><text class="must">*</text>确认密码</view>
+        <view class="relative">
+          <input class="lineHeight2 input" type="password" name="confirmpassword" placeholder="请输入确认密码" placeholder-class="iptplaceholder" />
+        </view>
+      </view>
+      <view class="out2">
+        <view class="lineHeight title"><text class="must">*</text>证书</view>
+        <view class="relative">
+          <view class="vid2 clearfix">
+            <image src="/img/pz.png" mode="aspectFill" class="jbjb" bindtap="moreImage"></image>
+            <block wx:for="{{imageList}}" wx:for-item="item" wx:for-index="index" wx:key="{{index}}">
+              <view class="addimg">
+                <image class="aimg" src="{{filePrevPath + item.filePath}}" data-index="{{index}}" mode="aspectFill" bindtap="previewImage">></image>
+                <image src="/img/close.png" mode="widthFix" data-index="{{index}}" class="close" bindtap="deleteImage"></image>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+      <!-- <colForm title='电话号码' name="mobile" placeHolder='请输入电话号码'></colForm>
+      <colForm title='姓名' name="name" placeHolder='请输入姓名'></colForm>
+      <colForm title='所属企业' name="mobile" placeHolder='请选择' isPicker="true"></colForm>
+      <colForm title='申请角色' name="roleIds" placeHolder='请选择' list="{{roles}}" isPicker="true"></colForm>
+      <colForm title='所属运营点' name="deptId" placeHolder='请选择' isPicker="true"></colForm>
+      <colForm title='密码' name="password" placeHolder='请输入密码'></colForm>
+      <colForm title='确认密码' name="confirmpassword" placeHolder='请输入确认密码'></colForm>
+      <colForm title='证书' name="imageId" hasImage="true"></colForm> -->
+      <view class="registerbtn">
+        <button hover-class="none" formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+</view>

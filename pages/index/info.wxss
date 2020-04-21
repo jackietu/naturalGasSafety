@@ -1,0 +1,16 @@
+/* pages/index/info.wxss */
+.viewcheck image {
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: center;
+}
+
+.buttomView {
+  padding: 4vw;
+}
+
+.lineHeight {
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 40vw;
+}
